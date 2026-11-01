@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nail Boutique | Handmade Press-On Nails</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #faf6f0;
+      --paper: #fffdf9;
+      --blush: #ead7d4;
+      --rose: #b78d8a;
+      --ink: #4b3934;
+      --gold: #aa8b63;
+      --line: #dfd0c3;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .announcement {
+      background: var(--ink);
+      color: #fff9f3;
+      text-align: center;
+      padding: 10px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 22px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+    .logo span {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 9px;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    nav a:hover { color: var(--rose); }
+    .hero {
+      text-align: center;
+      padding: 105px 20px;
+      background: radial-gradient(ellipse at top, #fffdf9, #f7eee8 60%, #efdfdc);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before, .hero::after {
+      content: "✧";
+      position: absolute;
+      font-size: 75px;
+      color: #c5a98f;
+      opacity: .45;
+    }
+    .hero::before { top: 15%; left: 8%; }
+    .hero::after { bottom: 12%; right: 9%; }
+    .eyebrow {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #8b6b60;
+    }
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+    }
+    .hero h1 {
+      font-size: clamp(65px, 11vw, 125px);
+      line-height: .9;
+      margin: 25px 0;
+    }
+    .hero h1 em { color: var(--rose); }
+    .hero p {
+      max-width: 470px;
+      margin: 25px auto 35px;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--ink);
+      color: white;
+      border: 1px solid var(--ink);
+      padding: 15px 27px;
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 2px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: transparent;
+      color: var(--ink);
+    }
+    .ribbon {
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+      padding: 16px 8px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 20px;
+    }
+    .ribbon span {
+      color: var(--gold);
+      margin: 0 12px;
+    }
+    section { padding: 85px 6%; }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+    .section-heading h2 {
+      font-size: clamp(45px, 7vw, 72px);
+      line-height: 1;
+      margin: 12px 0;
+    }
+    .section-heading p {
+      max-width: 500px;
+      margin: auto;
+      color: #79675f;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .product {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 10px 10px 24px;
+      text-align: center;
+    }
+    .product-art {
+      height: 260px;
+      background: linear-gradient(135deg, #f1e1dc, #faf5ee);
+      border: 1px solid #e8d9cf;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .product-art::before {
+      content: "✦";
+      font-size: 24px;
+      color: var(--gold);
+    }
+    .product-art span {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 26px;
+    }
+    .product-art small {
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #987d76;
+    }
+    .product h3 {
+      font-size: 29px;
+      margin: 18px 0 0;
+    }
+    .product p {
+      font-size: 12px;
+      color: #8e7770;
+      margin: 0;
+    }
+    .tag {
+      display: inline-block;
+      margin-top: 13px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #96734f;
+      text-transform: uppercase;
+    }
+    .note {
+      text-align: center;
+      max-width: 650px;
+      margin: 25px auto 0;
+      font-size: 12px;
+      color: #85716b;
+    }
+    .story {
+      background: #f0e4df;
+      border-block: 1px solid var(--line);
+    }
+    .story-inner {
+      max-width: 980px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 65px;
+      align-items: center;
+    }
+    .story-frame {
+      border: 1px solid #b89d8d;
+      padding: 12px;
+      min-height: 340px;
+      display: flex;
+    }
+    .story-frame div {
+      border: 1px solid #b89d8d;
+      background: #f9f1ea;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-style: italic;
+      color: #9b7a70;
+    }
+    .story h2, .custom h2 {
+      font-size: clamp(45px, 7vw, 70px);
+      line-height: 1;
+      margin: 15px 0 25px;
+    }
+    .steps {
+      max-width: 1050px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+    .step {
+      border-top: 1px solid var(--gold);
+      padding: 25px 15px;
+    }
+    .step strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 45px;
+      font-weight: 400;
+      color: #b69c86;
+    }
+    .step h3 {
+      font-size: 29px;
+      margin: 5px 0;
+    }
+    .step p {
+      font-size: 12px;
+      color: #7f6d65;
+    }
+    .custom {
+      background: var(--paper);
+      text-align: center;
+      border-block: 1px solid var(--line);
+    }
+    .custom > p {
+      max-width: 570px;
+      margin: 0 auto 25px;
+    }
+    .contact-box {
+      max-width: 560px;
+      margin: 30px auto 0;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      padding: 30px;
+    }
+    .contact-box h3 {
+      font-size: 32px;
+      margin: 0;
+    }
+    .contact-box p { font-size: 12px; }
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      background: var(--ink);
+      color: #fff7f0;
+    }
+    footer p {
+      font-size: 11px;
+      opacity: .85;
+    }
+    .legal {
+      margin-top: 25px;
+      font-size: 11px;
+    }
+    @media (max-width: 760px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+      nav {
+        justify-content: center;
+        gap: 14px;
+      }
+      section { padding: 65px 5%; }
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .product-art { height: 190px; }
+      .story-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .hero::before, .hero::after {
+        font-size: 38px;
+      }
+    }
+    @media (max-width: 420px) {
+      .products { grid-template-columns: 1fr; }
+      .product-art { height: 260px; }
+      .ribbon { font-size: 16px; }
+      .ribbon span { margin: 0 5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announcement">
+    Handmade with love · Made to measure · Online atelier
+  </div>
+
+  <header>
+    <a class="logo" href="#home">
+      Nail Boutique
+      <span>The little nail atelier</span>
+    </a>
+    <nav>
+      <a href="#collection">Collection</a>
+      <a href="#about">Our Story</a>
+      <a href="#sizing">Sizing</a>
+      <a href="#custom">Custom Orders</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="eyebrow">
+        A little something lovely, just for you
+      </div>
+      <h1>Little works<br>of <em>art.</em></h1>
+      <p>
+        Romantic, hand-painted press-on nails,
+        thoughtfully crafted for your own fingertips.
+        Every set is made to order, in your personal size.
+      </p>
+      <a class="btn" href="#collection">
+        Discover the Collection
+      </a>
+    </section>
+
+    <div class="ribbon">
+      made by hand <span>✧</span>
+      made for you <span>✧</span>
+      made with care
+    </div>
+
+    <section id="collection">
+      <div class="section-heading">
+        <div class="eyebrow">The first little collection</div>
+        <h2>Objects of Affection</h2>
+        <p>
+          Five designs, each with its own story.
+          Your nail measurements make each finished
+          set uniquely yours.
+        </p>
+      </div>
+
+      <div class="products">
+        <article class="product">
+          <div class="product-art">
+            <span>01 · The Darling</span>
+            <small>Your photograph coming soon</small>
+          </div>
+          <h3>The Darling</h3>
+          <p>Soft romance & delicate details</p>
+          <span class="tag">Made to order</span>
+        </article>
+
+        <article class="product">
+          <div class="product-art">
+            <span>02 · Café au Lait</span>
+            <small>Your photograph coming soon</small>
+          </div>
+          <h3>Café au Lait</h3>
+          <p>Chocolate tones & little treasures</p>
+          <span class="tag">Made to order</span>
+        </article>
+
+        <article class="product">
+          <div class="product-art">
+            <span>03 · Lace Letter</span>
+            <small>Your photograph coming soon</small>
+          </div>
+          <h3>Lace Letter</h3>
+          <p>Vintage lace & dainty bows</p>
+          <span class="tag">Made to order</span>
+        </article>
+
+        <article class="product">
+          <div class="product-art">
+            <span>04 · Sweet Reverie</span>
+            <small>Your photograph coming soon</small>
+          </div>
+          <h3>Sweet Reverie</h3>
+          <p>Blush pink & playful dots</p>
+          <span class="tag">Made to order</span>
+        </article>
+
+        <article class="product">
+          <div class="product-art">
+            <span>05 · Midnight Ribbon</span>
+            <small>Your photograph coming soon</small>
+          </div>
+          <h3>Midnight Ribbon</h3>
+          <p>Black accents & old-world charm</p>
+          <span class="tag">Made to order</span>
+        </article>
+      </div>
+
+      <p class="note">
+        Collection names and images are placeholders.
+        Real photographs will be added before launch.
+      </p>
+    </section>
+
+    <section class="story" id="about">
+      <div class="story-inner">
+        <div class="story-frame">
+          <div>Une petite<br>boutique ♡</div>
+        </div>
+        <div>
+          <div class="eyebrow">
+            From my desk to your fingertips
+          </div>
+          <h2>Not mass-made.<br><i>Made for you.</i></h2>
+          <p>
+            Every press-on nail is painted and finished
+            by hand. I work with carefully chosen colors,
+            delicate details, and little artistic touches
+            to create nails that feel personal.
+          </p>
+          <p>
+            Choose a design from the collection or share
+            an idea of your own. Each set is crafted
+            to your measurements.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sizing">
+      <div class="section-heading">
+        <div class="eyebrow">A thoughtful little process</div>
+        <h2>How It Works</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <strong>01</strong>
+          <h3>Fall in Love</h3>
+          <p>
+            Choose a collection design or tell me
+            about your dream set.
+          </p>
+        </div>
+
+        <div class="step">
+          <strong>02</strong>
+          <h3>Find Your Fit</h3>
+          <p>
+            Measure all ten nails using the sizing
+            instructions provided before ordering.
+          </p>
+        </div>
+
+        <div class="step">
+          <strong>03</strong>
+          <h3>Made Just for You</h3>
+          <p>
+            Once your details and payment are confirmed,
+            your individual set is handcrafted.
+          </p>
+        </div>
+      </div>
+
+      <p class="note">
+        Sizing instructions, prices, processing times,
+        shipping terms and ordering policies
+        will be published before orders open.
+      </p>
+    </section>
+
+    <section class="custom" id="custom">
+      <div class="eyebrow">
+        Your imagination is welcome here
+      </div>
+      <h2>A Bespoke Little Dream</h2>
+      <p>
+        Have a favorite color palette, a ribbon obsession,
+        or a completely original idea?
+        Custom commissions will be available for
+        designs created especially for you.
+      </p>
+
+      <div class="contact-box">
+        <h3>Enquiries Opening Soon ♡</h3>
+        <p>
+          Our atelier is being prepared.
+          Follow along for the first collection reveal
+          and ordering details.
+        </p>
+        <button class="btn" id="copyButton" type="button">
+          Copy an Enquiry Message
+        </button>
+        <p id="copyStatus" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo">Nail Boutique</div>
+    <p>A little online atelier for handmade press-on nails.</p>
+    <p>Based in Germany · Online only</p>
+    <div class="legal">
+      Impressum · Privacy Policy · Shop Terms
+      <br>
+      Legal information to be completed before launch.
+    </div>
+    <p>© <span id="year"></span> Nail Boutique</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    document.getElementById("copyButton")
+      .addEventListener("click", async function () {
+        const message =
+          "Hello! I am interested in a handmade press-on nail set. " +
+          "My preferred design is: ____. " +
+          "My preferred shape and length are: ____. " +
+          "Could you tell me about sizing, price and availability?";
+
+        const status = document.getElementById("copyStatus");
+
+        try {
+          await navigator.clipboard.writeText(message);
+          status.textContent = "Message copied! ♡";
+        } catch {
+          status.textContent = message;
+        }
+      });
+  </script>
+
+</body>
+</html>
